@@ -2,13 +2,8 @@ project "ocgcore"
     kind "SharedLib"
 
     files { "*.cpp", "*.h" }
+    includedirs { "../lua/src" }
     
-    if BUILD_LUA then
-        includedirs { "../lua/src" }
-    else
-        includedirs { LUA_INCLUDE_DIR }
-    end
-
     filter "not action:vs*"
         cppdialect "C++14"
 
@@ -17,6 +12,8 @@ project "ocgcore"
 
     filter "system:macosx"
         defines { "LUA_USE_MACOSX" }
+        buildoptions { "-fPIC" }
 
     filter "system:linux"
         defines { "LUA_USE_LINUX" }
+        buildoptions { "-fPIC" }
