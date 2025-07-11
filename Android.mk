@@ -22,11 +22,11 @@ LOCAL_SRC_FILES := card.cpp \
 	playerop.cpp \
 	processor.cpp \
 	scriptlib.cpp \
-	LuaMemTracker.cpp
 
 LOCAL_STATIC_LIBRARIES := lua
 
 LOCAL_CPPFLAGS := -std=c++14
+LOCAL_CPPFLAGS += -DLUA_USE_HPP
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../lua/src
 
 include $(BUILD_SHARED_LIBRARY)
